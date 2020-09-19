@@ -114,7 +114,7 @@ function stopRotateWheel() {
   document.body.style.background = bgGradient;
 
 
-  var debug = [
+  /*var debug = [
     { var: "spinTimeTotal", value: spinTimeTotal },
     { var: "spinAngleStart", value: spinAngleStart },
     { var: "spinAngle", value: spinAngle },
@@ -126,7 +126,7 @@ function stopRotateWheel() {
     { var: "text", value: text },
   ];
 
-  console.table(debug);
+  console.table(debug);*/
 
 
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);

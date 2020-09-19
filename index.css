@@ -22,11 +22,11 @@ html {
 html, body {
     height: 100%;
    	margin: 0 !important;
-	padding-top: 2%;
 }
 
 body {
 	overflow: hidden;
+	padding-top: 2%;
 }
 
 h1 {
