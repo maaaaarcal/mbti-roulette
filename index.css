@@ -1,0 +1,60 @@
+@font-face {
+	font-family: Montserrat;
+	src: url(res/fonts/Montserrat-Regular.otf);
+}
+
+@font-face {
+	font-family: MontserratSemiBold;
+	src: url(res/fonts/Montserrat-SemiBold.otf);
+}
+
+@font-face {
+	font-family: FontAwesome;
+	src: url(res/fonts/Font Awesome 5 Free-Solid-900.otf);
+}
+
+html {
+	position: relative;
+    background-color: #333333; 
+   	color: white;
+}
+
+html, body {
+    height: 100%;
+   	margin: 0 !important;
+	padding-top: 2%;
+}
+
+body {
+	overflow: hidden;
+}
+
+h1 {
+	margin-top: 0;
+	font-family: MontserratSemiBold;
+	font-size: 220%;
+}
+
+p {
+	font-family: Montserrat;
+	padding: 2%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.wrapper {
+    text-align: center;
+    margin: 5%;
+
+}
+
+.button {
+    position: relative;
+    height: 50px;
+    width: 150px;
+    padding: 1%;
+    font-family: Montserrat;
+    font-size: 110%;
+    border-radius: 25px;
+    border-style: none;
+}

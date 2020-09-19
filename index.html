@@ -2,11 +2,21 @@
 <html>
 	<head>
 		<title>MBTI Roulette</title>
-		<script src="roulette"></script>
+		<link rel="stylesheet" href="index.css">
+		<script src="roulette.js"></script>
 	</head>
-	<body>
-
-		<input type="button" value="spin" style="float:left;" id='spin' />
-		<canvas id="canvas" width="500" height="500"></canvas>
+	<body onload="drawRouletteWheel()">
+		<div class="wrapper">
+			<h1>
+				MBTI ROULETTE
+			</h1>
+			<p>
+			Why take more time than you need answering long personality tests when you can just spin the wheel to find out your MBTI Personality Type?
+			</p>
+		
+			<canvas id="canvas" width="500" height="500"></canvas>
+			<br>
+			<input class="button" type="button" value="Type Me" onclick="spin();" align="center" />
+		</div>
 	</body>
 </html>

@@ -1,94 +1,70 @@
-var options = ["$100", "$10", "$25", "$250", "$30", "$1000", "$1", "$200", "$45", "$500", "$5", "$20", "Lose", "$1000000", "Lose", "$350", "$5", "$99"];
+var colors = ["#886D98", "#836793", "#7D608C", "#765985",
+              "#99C16D", "#738D56", "#6b874c", "#59753C",
+              "#72CBCC", "#57b3b5", "#439b9c", "#299294",
+              "#e7d355", "#E0CA46", "#D9C037", "#C9AC18"];
+
+var bgGradient;
+
+var types = ["INTJ","INTP","ENTJ","ENTP",
+            "INFJ","INFP","ENFJ","ENFP",
+            "ISTJ","ISTP","ESTJ","ESTP",
+            "ISFJ","ISFP","ESFJ","ESFP",];
+
+var spinAngle = 0;
 
 var startAngle = 0;
-var arc = Math.PI / (options.length / 2);
+var arc = Math.PI / 8;
 var spinTimeout = null;
 
-var spinArcStart = 10;
+var spinArcStart = 16;
 var spinTime = 0;
 var spinTimeTotal = 0;
 
 var ctx;
 
-document.getElementById("spin").addEventListener("click", spin);
-
-function byte2Hex(n) {
-  var nybHexString = "0123456789ABCDEF";
-  return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
-}
-
-function RGB2Color(r,g,b) {
-	return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
-}
-
-function getColor(item, maxitem) {
-  var phase = 0;
-  var center = 128;
-  var width = 127;
-  var frequency = Math.PI*2/maxitem;
-  
-  red   = Math.sin(frequency*item+2+phase) * width + center;
-  green = Math.sin(frequency*item+0+phase) * width + center;
-  blue  = Math.sin(frequency*item+4+phase) * width + center;
-  
-  return RGB2Color(red,green,blue);
-}
-
 function drawRouletteWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
-    var outsideRadius = 200;
-    var textRadius = 160;
-    var insideRadius = 125;
-
+    var outsideRadius = 210;
+    var textRadius = 165; 
+    var insideRadius = 135;
+   
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,500,500);
-
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-
-    ctx.font = 'bold 12px Helvetica, Arial';
-
-    for(var i = 0; i < options.length; i++) {
+   
+    ctx.lineWidth = 0;
+   
+    ctx.font = 'bold 12px Montserrat';
+   
+    for(var i = 0; i < 16; i++) {
       var angle = startAngle + i * arc;
-      //ctx.fillStyle = colors[i];
-      ctx.fillStyle = getColor(i, options.length);
-
+      ctx.fillStyle = colors[i];
+     
       ctx.beginPath();
       ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
       ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
-      ctx.stroke();
       ctx.fill();
-
+     
       ctx.save();
-      ctx.shadowOffsetX = -1;
-      ctx.shadowOffsetY = -1;
-      ctx.shadowBlur    = 0;
-      ctx.shadowColor   = "rgb(220,220,220)";
-      ctx.fillStyle = "black";
-      ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius, 
+      ctx.fillStyle = "white";
+      ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius,
                     250 + Math.sin(angle + arc / 2) * textRadius);
       ctx.rotate(angle + arc / 2 + Math.PI / 2);
-      var text = options[i];
+      var text = types[i];
       ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
       ctx.restore();
-    } 
-
+    }
+   
     //Arrow
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 4, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 + 9, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 + 0, 250 - (outsideRadius - 13));
-    ctx.lineTo(250 - 9, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 - 4, 250 - (outsideRadius - 5));
-    ctx.lineTo(250 - 4, 250 - (outsideRadius + 5));
+    ctx.moveTo(250 - 15, 250 - (outsideRadius + 5));
+    ctx.lineTo(250 + 15, 250 - (outsideRadius + 5));
+    ctx.lineTo(250 + 0, 250 - (outsideRadius - 15));
     ctx.fill();
   }
 }
-
+   
 function spin() {
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
@@ -102,7 +78,7 @@ function rotateWheel() {
     stopRotateWheel();
     return;
   }
-  var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+  spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
   startAngle += (spinAngle * Math.PI / 180);
   drawRouletteWheel();
   spinTimeout = setTimeout('rotateWheel()', 30);
@@ -112,10 +88,47 @@ function stopRotateWheel() {
   clearTimeout(spinTimeout);
   var degrees = startAngle * 180 / Math.PI + 90;
   var arcd = arc * 180 / Math.PI;
+  
   var index = Math.floor((360 - degrees % 360) / arcd);
   ctx.save();
-  ctx.font = 'bold 30px Helvetica, Arial';
-  var text = options[index]
+  ctx.font = 'bold 40px MontserratSemiBold';
+  
+  var text = types[index]
+
+  if(text==="INTJ"||text==="INTP"||text==="ENTJ"||text==="ENTP") {
+      bgGradient = "linear-gradient(to right bottom, #886D98, #765985) no-repeat"
+  }
+  else if(text==="INFJ"||text==="INFP"||text==="ENFJ"||text==="ENFP") {
+      bgGradient = "linear-gradient(to right bottom, #99C16D, #59753C) no-repeat"
+  }
+  else if(text==="ISTJ"||text==="ISTP"||text==="ESTJ"||text==="ESTP") {
+      bgGradient = "linear-gradient(to right bottom, #72CBCC, #299294) no-repeat"
+  }
+  else if(text==="ISFJ"||text==="ISFP"||text==="ESFJ"||text==="ESFP") {
+      bgGradient = "linear-gradient(to right bottom, #E0CA46, #C9AC18) no-repeat"
+  }
+  else {
+      bgGradient = "linear-gradient(to right bottom, #ffffff, #333333) no-repeat"
+  }
+
+  document.body.style.background = bgGradient;
+
+
+  var debug = [
+    { var: "spinTimeTotal", value: spinTimeTotal },
+    { var: "spinAngleStart", value: spinAngleStart },
+    { var: "spinAngle", value: spinAngle },
+    { var: "startAngle", value: startAngle },
+    { var: "arc", value: arc },
+    { var: "arcd", value: arcd },
+    { var: "degrees", value: degrees },
+    { var: "index", value: index },
+    { var: "text", value: text },
+  ];
+
+  console.table(debug);
+
+
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
 }
