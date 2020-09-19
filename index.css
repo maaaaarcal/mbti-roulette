@@ -26,6 +26,7 @@ html, body {
 
 body {
 	overflow: hidden;
+	padding-top: 2%;
 }
 
 h1 {
@@ -44,6 +45,7 @@ p {
 .wrapper {
     text-align: center;
     margin: 5%;
+    margin-top: 0%;
 
 }
 
