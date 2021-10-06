@@ -1,2 +1,2 @@
 # mbti-roulette
-mbti-roulette.netlify.app
+https://mbti-roulette.netlify.app
