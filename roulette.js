@@ -35,7 +35,7 @@ function drawRouletteWheel() {
     ctx.lineWidth = 0;
    
     ctx.font = 'bold 19px Montserrat';
-   
+    
     for(var i = 0; i < 16; i++) {
       var angle = startAngle + i * arc;
       ctx.fillStyle = colors[i];
