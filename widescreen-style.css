@@ -1,0 +1,117 @@
+@font-face {
+	font-family: Montserrat;
+	src: url(res/fonts/Montserrat-Regular.otf);
+}
+
+@font-face {
+	font-family: MontserratSemiBold;
+	src: url(res/fonts/Montserrat-SemiBold.otf);
+}
+
+@font-face {
+	font-family: MontserratBold;
+	src: url(res/fonts/Montserrat-Bold.otf);
+}
+
+/*@font-face {
+	font-family: FontAwesome;
+	src: url(res/fonts/Font Awesome 5 Free-Solid-900.otf);
+}*/
+
+html {
+	position: relative;
+    background-color: #333333; 
+	font-family: MontserratSemiBold;
+   	color: white;
+}
+
+body {
+    height: 100vh;
+   	margin: 0 !important;
+}
+
+.contain {
+	margin: 0 auto;
+	max-width: 80rem;
+}
+
+.title {
+	font-family: MontserratBold;
+	font-size: 2em;
+	margin: 0;
+	padding-top: 5vh;
+	padding-left: 5vw;
+	padding-bottom: 1vh;
+	vertical-align:text-bottom;
+	color: white;
+}
+
+#border {
+	margin-left: 5vw;
+	width: 30%;
+	border-bottom: solid 1px white;
+}
+
+.flex {
+	padding-top: 3vh;
+	display: flex;
+    flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.intro {
+	margin: auto;
+	padding-top: 5vh;
+	text-align: left;
+	width: 45%;
+	text-indent: 2vw;
+}
+
+p {
+	font-family: Montserrat;
+	font-size: 1em;
+}
+
+.desc {
+	padding-top: 15vh;
+	text-align: center;
+	width: 45%;
+}
+
+.desc p {
+	width: auto;
+	margin: 0 5vw;
+	margin-top: 2vh;
+	text-align: left;
+	text-indent: 3vw;
+}
+
+.wrapper {
+	text-align: center;
+	width: 55%;
+}
+
+canvas {
+	width: 450px;
+	height: 450px;
+}
+
+.button {
+    position: relative;
+    height: 40px;
+    width: 90px;
+	margin-top: 0;
+    font-family: Montserrat;
+    font-size: 0.8em;
+    border-radius: 40px;
+    border-style: none;
+}
+
+.credits {
+	padding-top: 10vh;
+	padding-bottom: 5vh;
+	margin: 0 auto;
+	text-indent: 0;
+	text-align: center;
+}

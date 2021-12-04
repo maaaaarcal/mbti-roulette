@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>MBTI Roulette</title>
-		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="mobile-style.css">
+		<link rel="stylesheet" media="screen and (min-width: 800px)" href="widescreen-style.css">
 		<script src="roulette.js"></script>
 	</head>
-	<body onload="drawRouletteWheel()">
-		<div class="wrapper">
-			<br>
-			<h1>
+	<body onload="drawRouletteWheel()" font-family="MontserratSemiBold">
+		<div class="cont">
+			<h1 class="title">
 				MBTI ROULETTE
 			</h1>
-			<p>
-			Why take more time than you need answering long personality tests when you can just spin the wheel to find out your MBTI Personality Type?
-			</p>
-		
-			<canvas id="canvas" width="500" height="500"></canvas>
-			<br>
-			<input class="button" type="button" value="Type Me" onclick="spin();" align="center" />
+			<div id="border"></div>
+			<!--<p class="intro">
+				Why take more time than you need answering long personality tests when you can just spin the wheel to find out your Myers-Briggs personality type?
+			</p>-->
+			<div class="flex">
+				<div class="desc">
+					<p>
+						Why take more time than you need answering long personality tests when you can just spin the wheel to find out your Myers-Briggs personality type?
+					</p>
+				</div>
+				<div class="wrapper">
+					<canvas id="canvas" width="550" height="550" style="object-fit:contain;"></canvas>
+					<br>
+					<input class="button" type="button" value="Type Me" onclick="spin();" text-align="center"/>
+				</div>
+			</div>
 		</div>
+		<p class="credits">Created by <b>Marc Alburo</b></p>
 	</body>
 </html>

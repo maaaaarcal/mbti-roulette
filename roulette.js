@@ -25,30 +25,30 @@ var ctx;
 function drawRouletteWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
-    var outsideRadius = 210;
-    var textRadius = 165; 
-    var insideRadius = 135;
+    var outsideRadius = 250.5;
+    var textRadius = 200.5; 
+    var insideRadius = 170.5;
    
     ctx = canvas.getContext("2d");
-    ctx.clearRect(0,0,500,500);
+    ctx.clearRect(0,0,550,550);
    
     ctx.lineWidth = 0;
    
-    ctx.font = 'bold 12px Montserrat';
+    ctx.font = 'bold 19px Montserrat';
    
     for(var i = 0; i < 16; i++) {
       var angle = startAngle + i * arc;
       ctx.fillStyle = colors[i];
      
       ctx.beginPath();
-      ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
-      ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+      ctx.arc(275.5, 275.5, outsideRadius, angle, angle + arc, false);
+      ctx.arc(275.5, 275.5, insideRadius, angle + arc, angle, true);
       ctx.fill();
      
       ctx.save();
       ctx.fillStyle = "white";
-      ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius,
-                    250 + Math.sin(angle + arc / 2) * textRadius);
+      ctx.translate(275 + Math.cos(angle + arc / 2) * textRadius,
+                    275 + Math.sin(angle + arc / 2) * textRadius);
       ctx.rotate(angle + arc / 2 + Math.PI / 2);
       var text = types[i];
       ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
@@ -58,22 +58,22 @@ function drawRouletteWheel() {
     //Arrow
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.moveTo(250 - 15, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 15, 250 - (outsideRadius + 5));
-    ctx.lineTo(250 + 0, 250 - (outsideRadius - 15));
+    ctx.moveTo(275.5 - 15, 275 - (outsideRadius + 5));
+    ctx.lineTo(275.5 + 15, 275 - (outsideRadius + 5));
+    ctx.lineTo(275.5 + 0, 275 - (outsideRadius - 15));
     ctx.fill();
   }
 }
    
 function spin() {
-  spinAngleStart = Math.random() * 10 + 10;
+  spinAngleStart = Math.random() * 10 + 10 * 2;
   spinTime = 0;
-  spinTimeTotal = Math.random() * 3 + 4 * 1000;
+  spinTimeTotal = 3000;
   rotateWheel();
 }
 
 function rotateWheel() {
-  spinTime += 30;
+  spinTime += 15;
   if(spinTime >= spinTimeTotal) {
     stopRotateWheel();
     return;
@@ -81,7 +81,7 @@ function rotateWheel() {
   spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
   startAngle += (spinAngle * Math.PI / 180);
   drawRouletteWheel();
-  spinTimeout = setTimeout('rotateWheel()', 30);
+  spinTimeout = setTimeout('rotateWheel()', 20);
 }
 
 function stopRotateWheel() {
@@ -90,6 +90,7 @@ function stopRotateWheel() {
   var arcd = arc * 180 / Math.PI;
   
   var index = Math.floor((360 - degrees % 360) / arcd);
+  console.log("index " + index)
   ctx.save();
   ctx.font = 'bold 40px MontserratSemiBold';
   
@@ -129,7 +130,7 @@ function stopRotateWheel() {
   console.table(debug);*/
 
 
-  ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+  ctx.fillText(text, 275 - ctx.measureText(text).width / 2, 275 + 10);
   ctx.restore();
 }
 
