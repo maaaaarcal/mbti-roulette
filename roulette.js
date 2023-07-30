@@ -68,12 +68,12 @@ function drawRouletteWheel() {
 function spin() {
   spinAngleStart = Math.random() * 10 + 10 * 2;
   spinTime = 0;
-  spinTimeTotal = 3000;
+  spinTimeTotal = 5000;
   rotateWheel();
 }
 
 function rotateWheel() {
-  spinTime += 15;
+  spinTime += 10;
   if(spinTime >= spinTimeTotal) {
     stopRotateWheel();
     return;
@@ -90,7 +90,6 @@ function stopRotateWheel() {
   var arcd = arc * 180 / Math.PI;
   
   var index = Math.floor((360 - degrees % 360) / arcd);
-  console.log("index " + index)
   ctx.save();
   ctx.font = 'bold 40px MontserratSemiBold';
   

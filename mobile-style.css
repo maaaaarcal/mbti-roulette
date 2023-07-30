@@ -95,3 +95,8 @@ canvas {
 	text-indent: 0;
 	text-align: center;
 }
+
+.credits a {
+	text-decoration: none;
+	color: white;
+}

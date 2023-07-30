@@ -40,15 +40,15 @@ body {
 	font-size: 2em;
 	margin: 0;
 	padding-top: 5vh;
-	padding-left: 5vw;
+	padding-left: 10vw;
 	padding-bottom: 1vh;
 	vertical-align:text-bottom;
 	color: white;
 }
 
 #border {
-	margin-left: 5vw;
-	width: 30%;
+	margin-left: 10vw;
+	width: 25%;
 	border-bottom: solid 1px white;
 }
 
@@ -58,14 +58,6 @@ body {
     flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-between;
-}
-
-.intro {
-	margin: auto;
-	padding-top: 5vh;
-	text-align: left;
-	width: 45%;
-	text-indent: 2vw;
 }
 
 p {
@@ -81,10 +73,10 @@ p {
 
 .desc p {
 	width: auto;
-	margin: 0 5vw;
+	margin: 0 10vw;
 	margin-top: 1vh;
 	text-align: left;
-	text-indent: 3vw;
+	text-indent: 0;
 }
 
 .wrapper {
@@ -114,4 +106,9 @@ canvas {
 	margin: 0 auto;
 	text-indent: 0;
 	text-align: center;
+}
+
+.credits a {
+	text-decoration: none;
+	color: white;
 }
