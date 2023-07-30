@@ -33,11 +33,17 @@ html, body {
 	font-family: MontserratBold;
 	font-size: 1.7em;
 	margin: 0;
-	padding-top: 3vh;
+	padding-top: 5vh;
 	padding-left: 5vw;
 	padding-bottom: 1vh;
 	vertical-align: text-bottom;
 	color: white;
+}
+
+#border {
+	margin-left: 5vw;
+	width: 70%;
+	border-bottom: solid 1px white;
 }
 
 .flex {
