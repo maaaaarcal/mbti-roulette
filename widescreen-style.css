@@ -30,6 +30,10 @@ body {
    	margin: 0 !important;
 }
 
+.cont {
+	padding: 10px 30px;
+}
+
 .contain {
 	margin: 0 auto;
 	max-width: 80rem;
@@ -63,20 +67,31 @@ body {
 p {
 	font-family: Montserrat;
 	font-size: 1em;
+	padding: 0.5em;
 }
 
 .desc {
-	padding-top: 8vh;
+	padding-top: 2vh;
 	text-align: center;
 	width: 45%;
 }
 
 .desc p {
 	width: auto;
-	margin: 0 10vw;
+	margin: 0 3vw 0 8vw;
 	margin-top: 1vh;
 	text-align: left;
-	text-indent: 0;
+	text-indent: 2em;
+	line-height: 1.5em;
+}
+
+.explainer {
+	padding-top: 5vh;
+	text-align: left;
+}
+
+.explainer h3 {
+	margin-left: 10vw;
 }
 
 .wrapper {
