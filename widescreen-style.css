@@ -80,8 +80,7 @@ p {
 
 .desc p {
 	width: auto;
-	margin: 0 3vw 0 8vw;
-	margin-top: 1vh;
+	margin: 1vh 5vw;
 	text-align: left;
 	text-indent: 2em;
 	line-height: 1.5em;
