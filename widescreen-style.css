@@ -31,7 +31,8 @@ body {
 }
 
 .cont {
-	padding: 10px 70px;
+	padding: 10px 0;
+	width: 70%;
 }
 
 .contain {
